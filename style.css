@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    background-color: white;
+    height: 100vh;
+    width: 552px;
+    margin: 0 auto;
+    border: 1px solid #E5E4E2;
+    height: 1500px;
+}
+
+.bg-image, .dashboard, .tweets {
+    border-bottom: 1px solid lightgrey;
+    padding: 20px;
+}
+
+.header {
+    height: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header > img {
+    height: 30px;
+    width: 25px;
+    margin-right: 20px;
+}
+
+.name {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+
+.verifyCheck > img {
+    height: 17px;
+}
+
+.header .text-style {
+    font-size: 0.8em;
+    color: rgb(83, 100, 113);
+}
+
+.bg-image {
+    height: 150px;
+
+}
+
+.dashboard {
+    height: 160px;
+    background-color: white;
+    border-bottom: none;
+}
+
+.follow-btn {
+ background-color: #1C9BEF; 
+ font-weight: 600;
+ margin-top: -10px;
+ color: white;
+ padding: 10px 15px;
+ border: none;
+ border-radius: 20px;  
+ height: max-content;
+}
+
+.follow-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.img-and-btn > .user-img {
+    height: 130px;
+    width: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px white;
+    margin-top: -85px;
+    background-image: url('assets/elonmusk.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.user-info {
+    margin-top: 5px;
+}
+
+.user-info .name {
+    font-size: 1.1em;
+    font-weight: 600;
+    padding-bottom: 3px;
+}
+
+.user-info .username {
+    font-size: 0.9em;
+    color: rgb(83, 100, 113);
+    padding-bottom: 15px;
+}
+
+.calendar-flex {
+    display: flex;
+    align-items: center;
+    color: rgb(83, 100, 113);
+    margin-bottom: 10px;
+}
+
+.calendar-flex .date {
+    font-size: 0.9em;
+}
+
+.user-info .calendar {
+    height: 20px;
+    margin-right: 5px;
+}
+
+.img-and-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.follow {
+    display: flex;
+}
+
+.follow .text-style {
+    font-size: 0.9em;
+    color: rgb(83, 100, 113);
+    margin-right: 15px;
+}
+
+.numbers {
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.twitter-menu {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.menu-item {
+    padding: 20px 37.3px;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: rgb(101, 112, 122);
+    /* font-weight: bold; */
+}
+
+.menu-item:hover {
+    cursor: pointer;
+    background-color: #E5E4E2;
+}
+
+.menu-item-active {
+    position: relative;
+    padding-bottom: 20px;
+    color: black;
+}
+
+.menu-item-active::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 4px solid rgb(29, 155, 240);
+    border-radius: 4px;
+    content: "";
+}
+
+
+.tweets-display {
+    height: 75px;   
+    border: 1px solid #E5E4E2;
+    border-right: none;
+    border-left: none;
+}
+
+.tweets-display:hover {
+    cursor: pointer;
+    background-color: #E5E4E2;
+}
