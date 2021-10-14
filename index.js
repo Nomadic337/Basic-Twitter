@@ -53,7 +53,9 @@ var user2 = {
 window.addEventListener("load", isUserVerified);
 
 
-// .header, get and add "Elon Musk" and "# Tweets" / Area 1
+
+
+// .header, get and add "Elon Musk" and "# Tweets" /   Area 1
 var header = document.querySelector(".header");
 header.innerHTML += `
     <div>
@@ -79,15 +81,43 @@ function isUserVerified() {
 }
 
 
-// Top Background Image / Area 2
-var backgroundImage = document.querySelector(".bg-image");
-backgroundImage.style.cssText = `
+
+
+// Top Background Image /    Area 2
+var backgroundImage = document.createElement("div");
+backgroundImage.classList.add("bg-image");
+
+backgroundImage.style.cssText += `
     background-image: url(${user1.coverPhotoURL});
     background-size: cover;
 
 `
 
+var container = document.querySelector(".container");
+var dashboard = document.querySelector(".dashboard");
+
+container.insertBefore(backgroundImage, dashboard);
+
+// console.log(backgroundImage);
+
+
+
+
+
 // Dashboard / Area 3
+
+var userImage = document.createElement("div");
+userImage.classList.add("user-image");
+userImage.style.cssText += `
+    background-image: url(${user1.coverPhotoURL});
+    background-size: cover;
+
+`
+var btnImageContainer = document.querySelector(".img-and-btn");
+btnImageContainer.appendChild(userImage);
+
+// var userImage
+
 
 // Follow button logic
 function FollowOrNot(followButton) {
@@ -175,13 +205,37 @@ var tweetsOfUser = user1.tweets;
 console.log(tweetsOfUser);
 
 // Tweets
-var tweet = document.createElement("div");
-tweet.classList.add("tweets-display");
-console.log(tweet);
+
+var tweetContainer = document.querySelector(".tweet-timeline");
+// console.log(tweetContainer);
 
 
 for (let tweet of tweetsOfUser) {
-    console.log(tweet.text);
-    console.log(tweet.timestamp);
+    var tweetDiv = document.createElement("div");
+    tweetDiv.classList.add("tweet");
+
+    // tweetDiv.appendChild(backgroundImage.cloneNode(true));
+    console.log(tweetDiv);
+    tweetDiv.innerHTML =   `
+
+
+        <p>${tweet.text}</p>
+
+        <div class="engagement">
+            <img class = "message-icon" src="https://img.icons8.com/material-outlined/24/000000/speech-bubble.png"/>
+            <img class = "retweet-icon" src="https://img.icons8.com/material-outlined/50/000000/retweet.png"/>
+            <img class = "like-icon" src="https://img.icons8.com/material-outlined/32/000000/filled-like.png"/>
+            <img class = "share-icon" src="https://img.icons8.com/material-two-tone/32/000000/share-rounded.png"/>
+            
+        
+        </div>
+    `
+
+
+    tweetContainer.appendChild(tweetDiv);
+
+
+    // console.log(tweet.text);
+    // console.log(tweet.timestamp);
 }
 

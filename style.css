@@ -16,7 +16,7 @@ body {
     height: 1500px;
 }
 
-.bg-image, .dashboard, .tweets {
+.bg-image, .dashboard {
     border-bottom: 1px solid lightgrey;
     padding: 20px;
 }
@@ -84,7 +84,6 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 0 5px white;
     margin-top: -85px;
-    background-image: url('assets/elonmusk.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -178,14 +177,52 @@ body {
 }
 
 
-.tweets-display {
+.tweet {
     height: 75px;   
     border: 1px solid #E5E4E2;
     border-right: none;
     border-left: none;
+    padding: 10px 20px;
+
 }
 
-.tweets-display:hover {
+.tweet:hover {
     cursor: pointer;
     background-color: #E5E4E2;
+}
+
+/* .img-and-btn > .user-img {
+    height: 130px;
+    width: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px white;
+    margin-top: -85px;
+    background-image: url('assets/elonmusk.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+} */
+
+
+.engagement {
+    height: 30px;
+    background-color: cadetblue;
+
+}
+
+.message-icon {
+    height: 20px;
+}
+
+.retweet-icon {
+    height: 22px;
+}
+
+.like-icon {
+    height: 20px;
+}
+
+.share-icon {
+    height: 19px;
 }
