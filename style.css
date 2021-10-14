@@ -55,6 +55,10 @@ body {
 
 }
 
+.bg-image:hover {
+    cursor: pointer;
+}
+
 .dashboard {
     height: 160px;
     background-color: white;

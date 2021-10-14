@@ -98,25 +98,26 @@ var dashboard = document.querySelector(".dashboard");
 
 container.insertBefore(backgroundImage, dashboard);
 
-// console.log(backgroundImage);
+// Add full screen image when clicled option?
 
 
 
 
 
-// Dashboard / Area 3
+// Dashboard /    Area 3
 
 var userImage = document.createElement("div");
-userImage.classList.add("user-image");
+userImage.classList.add("user-img");
 userImage.style.cssText += `
-    background-image: url(${user1.coverPhotoURL});
+    background-image: url(${user1.avatarURL});
     background-size: cover;
 
 `
 var btnImageContainer = document.querySelector(".img-and-btn");
-btnImageContainer.appendChild(userImage);
+var followButton = document.querySelector(".follow-btn");
+btnImageContainer.insertBefore(userImage, followButton);
 
-// var userImage
+
 
 
 // Follow button logic
@@ -132,8 +133,9 @@ function FollowOrNot(followButton) {
 }
 
 // Follow Button
-var followButton = document.querySelector(".follow-btn");
 followButton.addEventListener("click", FollowOrNot);
+
+
 
 
 // Basic user info
@@ -168,7 +170,9 @@ function followersDisplay(follower) {
 }
 
 
-// User menu
+
+// Twitter menu /    Area 4
+
 function activeMenuItem(item) {
     if (item.textContent === "Tweets"){
         // item.children[0].classList.toggle("menu-item-active");
