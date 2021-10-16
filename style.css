@@ -182,11 +182,13 @@ body {
 
 
 .tweet {
-    height: 75px;   
+    /* height: 75px;   */
+    min-height: 45px; 
     border: 1px solid #E5E4E2;
     border-right: none;
     border-left: none;
-    padding: 10px 20px;
+    padding: 10px;
+    display: flex;
 
 }
 
@@ -195,24 +197,65 @@ body {
     background-color: #E5E4E2;
 }
 
-/* .img-and-btn > .user-img {
-    height: 130px;
-    width: 130px;
+
+.tweet > .user-img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
     object-fit: cover;
     border-radius: 50%;
-    box-shadow: 0 0 0 5px white;
-    margin-top: -85px;
     background-image: url('assets/elonmusk.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+}
 
-} */
 
+.three-dots {
+    margin-top: -7px;
+}
+
+.tweet-info {
+    margin-bottom: 2px;
+}
+
+.tweet-info > .name {
+    font-size: 0.9em;
+    font-weight: 600;
+
+}
+
+.tweet-info > .name > .verifyCheck > img {
+    height: 14px;
+}
+
+.tweet-info > .text-style {
+    font-size: 0.9em;
+    color: rgb(83, 100, 113);
+    
+}
+
+.tweet-body {
+    width: 85%;
+}
+
+.tweet-body p:nth-child(2) {
+    /* border: 2px solid black; */
+    margin-bottom: 6px;
+}
 
 .engagement {
     height: 30px;
-    background-color: cadetblue;
+    display: flex;
+    margin-top: 15px;
+}
 
+.engagement-flex {
+    display: flex;
+    margin-right: 70px;
+}
+
+.engagement-flex > img {
+    margin-right: 10px;
 }
 
 .message-icon {

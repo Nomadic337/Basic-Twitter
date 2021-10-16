@@ -98,7 +98,7 @@ var dashboard = document.querySelector(".dashboard");
 
 container.insertBefore(backgroundImage, dashboard);
 
-// Add full screen image when clicled option?
+// Add full screen image when clicked option?
 
 
 
@@ -116,7 +116,6 @@ userImage.style.cssText += `
 var btnImageContainer = document.querySelector(".img-and-btn");
 var followButton = document.querySelector(".follow-btn");
 btnImageContainer.insertBefore(userImage, followButton);
-
 
 
 
@@ -198,11 +197,19 @@ for (const menuItem of menuItems) {
 
 }
 
-// Tweets display
+// Tweets display  /     Area 5 
 
-// 1. Check how many tweets 
-// 2. Create as many divs as necessary
-var tweetDiv = document.querySelectorAll(".tweets-display");
+/*
+
+1. Create an element that will be the "div" that hold a tweet and everything else
+2. Recreate the "div" as many times as there are tweets
+
+
+*/
+
+
+
+// var tweetDiv = document.querySelectorAll(".tweets-display");
 // console.log(tweetDiv);
 
 var tweetsOfUser = user1.tweets;
@@ -211,35 +218,82 @@ console.log(tweetsOfUser);
 // Tweets
 
 var tweetContainer = document.querySelector(".tweet-timeline");
+
+// InnerHTML cannot interpret a variable, so create an object for flexibility
+// var userImageObj = { userImage1: userImage};
+// console.log(userImageObj.userImage1.outerHTML, "test");
 // console.log(tweetContainer);
 
-
+console.log(userImage);
 for (let tweet of tweetsOfUser) {
     var tweetDiv = document.createElement("div");
     tweetDiv.classList.add("tweet");
 
-    // tweetDiv.appendChild(backgroundImage.cloneNode(true));
     console.log(tweetDiv);
-    tweetDiv.innerHTML =   `
-
-
-        <p>${tweet.text}</p>
-
-        <div class="engagement">
-            <img class = "message-icon" src="https://img.icons8.com/material-outlined/24/000000/speech-bubble.png"/>
-            <img class = "retweet-icon" src="https://img.icons8.com/material-outlined/50/000000/retweet.png"/>
-            <img class = "like-icon" src="https://img.icons8.com/material-outlined/32/000000/filled-like.png"/>
-            <img class = "share-icon" src="https://img.icons8.com/material-two-tone/32/000000/share-rounded.png"/>
+    // tweetDiv.appendChild(userImage.cloneNode(true));
+    tweetDiv.innerHTML += `
+        ${userImage.outerHTML}
+        <div class="tweet-body">
             
+            <p class="tweet-info">
+                
+                <span class="name">${user1.displayName} <span class="verifyCheck"></span></span>
+                <span class="text-style">${user1.userName}</span>
+                <span>${tweet.timestamp}</span>
+            
+            </p>
+            
+            
+            <p>${tweet.text}</p>
+
+            <div class="engagement">
+                <div class="engagement-flex">
+                    <img class = "message-icon" src="https://img.icons8.com/material-outlined/24/000000/speech-bubble.png"/>
+                    <p>5.8K</p>
+                </div>
+
+                <div class="engagement-flex">
+                    <img class = "retweet-icon" src="https://img.icons8.com/material-outlined/50/000000/retweet.png"/>
+                    <p>5.8K</p>
+                </div>
+
+                <div class="engagement-flex">
+                    <img class = "like-icon" src="https://img.icons8.com/material-outlined/32/000000/filled-like.png"/>
+                    <p>5.8K</p>
+                </div>
+
+                <div class="engagement-flex">
+                    <img class = "share-icon" src="https://img.icons8.com/material-two-tone/32/000000/share-rounded.png"/>
+                </div>
+
+            </div>
         
         </div>
+        <p class="three-dots">...</p>
+
+
     `
 
+    container.appendChild(tweetDiv);
 
-    tweetContainer.appendChild(tweetDiv);
 
-
-    // console.log(tweet.text);
-    // console.log(tweet.timestamp);
 }
 
+/* 
+
+<div class="tweet-img-section">${userImage.outerHTML}</div> 
+
+
+
+
+<div></div>
+
+<p>${tweet.text}</p>
+
+<div class="engagement">
+    <img class = "message-icon" src="https://img.icons8.com/material-outlined/24/000000/speech-bubble.png"/>
+    <img class = "retweet-icon" src="https://img.icons8.com/material-outlined/50/000000/retweet.png"/>
+    <img class = "like-icon" src="https://img.icons8.com/material-outlined/32/000000/filled-like.png"/>
+    <img class = "share-icon" src="https://img.icons8.com/material-two-tone/32/000000/share-rounded.png"/>
+
+</div> */
