@@ -1,5 +1,5 @@
 
-var user1 = {
+var users = { user1 : {
     userName: '@elonmusk',
     displayName: 'Elon Musk',
     joinedDate: 'June 2009',
@@ -22,9 +22,9 @@ var user1 = {
             timestamp: '2/09/2021 12:11:51'
         }
     ]
-};
+}, 
 
-var user2 = {
+user2 : {
     userName: '@BillGates',
     displayName: 'Bill Gates',
     joinedDate: 'June 2009',
@@ -47,7 +47,10 @@ var user2 = {
             timestamp: '2/09/2021 12:11:51'
         }
     ]
-};
+}}
+
+// Which user?
+var userObj = users[window.location.search.slice(6)];
 
 
 // Add blue check if user is verified
@@ -60,8 +63,8 @@ window.addEventListener("load", isUserVerified);
 var header = document.querySelector(".header");
 header.innerHTML += `
     <div>
-        <p class="name">${user1.displayName} <span class="verifyCheck"></span></p>
-        <p class="text-style">${user1.tweets.length} Tweets</p>
+        <p class="name">${userObj.displayName} <span class="verifyCheck"></span></p>
+        <p class="text-style">${userObj.tweets.length} Tweets</p>
     </div>
 `
 
@@ -75,7 +78,7 @@ verified.setAttribute("src", "assets/verified.png");
 
 // If is user is verified add blue check (I added "isVerified" proterty to the user object)
 function isUserVerified() {
-    if (user1.isVerified) {
+    if (userObj.isVerified) {
         var check = document.querySelectorAll(".verifyCheck");
         check.forEach(el => el.appendChild(verified.cloneNode(true)));
     } 
@@ -89,7 +92,7 @@ var backgroundImage = document.createElement("div");
 backgroundImage.classList.add("bg-image");
 
 backgroundImage.style.cssText += `
-    background-image: url(${user1.coverPhotoURL});
+    background-image: url(${userObj.coverPhotoURL});
     background-size: cover;
 
 `
@@ -110,7 +113,7 @@ container.insertBefore(backgroundImage, dashboard);
 var userImage = document.createElement("div");
 userImage.classList.add("user-img");
 userImage.style.cssText += `
-    background-image: url(${user1.avatarURL});
+    background-image: url(${userObj.avatarURL});
     background-size: cover;
 
 `
@@ -141,9 +144,9 @@ followButton.addEventListener("click", FollowOrNot);
 // Basic user info
 var userInfo = document.querySelector(".user-info");
 userInfo.innerHTML += `
-        <p class="name">${user1.displayName} <span class="verifyCheck"></span></p>
-        <p class="username">${user1.userName}</p>
-        <p class="calendar-flex"><span class="calendar-icon"></span> <span class="date">Joined ${user1.joinedDate}</span></p>
+        <p class="name">${userObj.displayName} <span class="verifyCheck"></span></p>
+        <p class="username">${userObj.userName}</p>
+        <p class="calendar-flex"><span class="calendar-icon"></span> <span class="date">Joined ${userObj.joinedDate}</span></p>
 `;
 
 // Calendar SVG
@@ -158,8 +161,8 @@ calendarDisplay.appendChild(calendarSVG);
 // Account follows and following
 var follow = document.querySelector(".follow");
 follow.innerHTML += `
-        <p><span class="numbers">${user1.followingCount} </span><span class="text-style">Following</span></p>
-        <p><span class="numbers">${followersDisplay(user1.followerCount)} </span><span class="text-style">Followers</span></p>
+        <p><span class="numbers">${userObj.followingCount} </span><span class="text-style">Following</span></p>
+        <p><span class="numbers">${followersDisplay(userObj.followerCount)} </span><span class="text-style">Followers</span></p>
 `;
 
 // From 47900000 followers to 47.9M
@@ -176,7 +179,7 @@ function followersDisplay(follower) {
 function activeMenuItem(item) {
     if (item.textContent === "Tweets"){
         // item.children[0].classList.toggle("menu-item-active");
-        console.log(item.textContent);
+
         window.scroll({
             top: 0, 
             left: 0, 
@@ -200,47 +203,27 @@ for (const menuItem of menuItems) {
 
 // Tweets display  /     Area 5 
 
-/*
 
-1. Create an element that will be the "div" that hold a tweet and everything else
-2. Recreate the "div" as many times as there are tweets
-
-
-*/
-
-
-
-// var tweetDiv = document.querySelectorAll(".tweets-display");
-// console.log(tweetDiv);
-
-var tweetsOfUser = user1.tweets;
-console.log(tweetsOfUser);
+var tweetsOfUser = userObj.tweets;
 
 
 // Tweets
 
 var tweetContainer = document.querySelector(".tweet-timeline");
 
-// InnerHTML cannot interpret a variable, so create an object for flexibility
-// var userImageObj = { userImage1: userImage};
-// console.log(userImageObj.userImage1.outerHTML, "test");
-// console.log(tweetContainer);
 
-console.log(userImage);
+
 for (let tweet of tweetsOfUser) {
     var tweetDiv = document.createElement("div");
     tweetDiv.classList.add("tweet");
-
-    console.log(tweetDiv);
-    // tweetDiv.appendChild(userImage.cloneNode(true));
     tweetDiv.innerHTML += `
         ${userImage.outerHTML}
         <div class="tweet-body">
             
             <p class="tweet-info">
                 
-                <span class="name">${user1.displayName} <span class="verifyCheck"></span></span>
-                <span class="text-style">${user1.userName}</span>
+                <span class="name">${userObj.displayName} <span class="verifyCheck"></span></span>
+                <span class="text-style">${userObj.userName}</span>
                 <span>${tweet.timestamp}</span>
             
             </p>
@@ -256,12 +239,12 @@ for (let tweet of tweetsOfUser) {
 
                 <div class="engagement-flex">
                     <img class = "retweet-icon" src="https://img.icons8.com/material-outlined/50/000000/retweet.png"/>
-                    <p>5.8K</p>
+                    <p>2.3K</p>
                 </div>
 
                 <div class="engagement-flex">
                     <img class = "like-icon" src="https://img.icons8.com/material-outlined/32/000000/filled-like.png"/>
-                    <p>5.8K</p>
+                    <p>1.2K</p>
                 </div>
 
                 <div class="engagement-flex">
