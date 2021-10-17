@@ -182,7 +182,6 @@ body {
 
 
 .tweet {
-    /* height: 75px;   */
     min-height: 45px; 
     border: 1px solid #E5E4E2;
     border-right: none;
@@ -215,7 +214,7 @@ body {
 }
 
 .tweet-info {
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 
 .tweet-info > .name {
@@ -239,7 +238,6 @@ body {
 }
 
 .tweet-body p:nth-child(2) {
-    /* border: 2px solid black; */
     margin-bottom: 6px;
 }
 
@@ -256,7 +254,14 @@ body {
 
 .engagement-flex > img {
     margin-right: 10px;
+    color: rgb(83, 100, 113);
 }
+
+.engagement-flex > p {
+    color:rgb(83, 100, 113);
+    font-size: 0.9em;
+}
+
 
 .message-icon {
     height: 20px;

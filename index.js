@@ -1,3 +1,4 @@
+
 var user1 = {
     userName: '@elonmusk',
     displayName: 'Elon Musk',
@@ -214,6 +215,7 @@ for (const menuItem of menuItems) {
 
 var tweetsOfUser = user1.tweets;
 console.log(tweetsOfUser);
+
 
 // Tweets
 
