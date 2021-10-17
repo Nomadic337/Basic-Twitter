@@ -53,7 +53,7 @@ user2 : {
 var siteURL = window.location.search;
 
 // If no users in URL, display user1 as default
-if (!siteURL) {
+if (!siteURL.includes("user=")) {
     const urlParams = new URLSearchParams(window.location.search);
     urlParams.set('user', 'user1');
     window.location.search = urlParams;
@@ -61,13 +61,9 @@ if (!siteURL) {
 }
 
 // Which user?
-var userObj = users[siteURL.slice(6)];
+var userObj = users[siteURL.split("=").pop()];
 
-
-
-
-// Test 
-// console.log(Date(2/09/2021 18:37:12))
+console.log(userObj);
 
 
 // .header, get and add "Elon Musk" and "# Tweets" /   Area 1
