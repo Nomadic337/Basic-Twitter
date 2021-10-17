@@ -49,14 +49,25 @@ user2 : {
     ]
 }}
 
+
+var siteURL = window.location.search;
+
+// If no users in URL, display user1 as default
+if (!siteURL) {
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('user', 'user1');
+    window.location.search = urlParams;
+
+}
+
 // Which user?
-var userObj = users[window.location.search.slice(6)];
+var userObj = users[siteURL.slice(6)];
 
 
-// Add blue check if user is verified
-window.addEventListener("load", isUserVerified);
 
 
+// Test 
+// console.log(Date(2/09/2021 18:37:12))
 
 
 // .header, get and add "Elon Musk" and "# Tweets" /   Area 1
@@ -101,8 +112,6 @@ var container = document.querySelector(".container");
 var dashboard = document.querySelector(".dashboard");
 
 container.insertBefore(backgroundImage, dashboard);
-
-// Add full screen image when clicked option?
 
 
 
@@ -264,21 +273,18 @@ for (let tweet of tweetsOfUser) {
 
 }
 
+
+
+
+// Add blue check if user is verified
+window.addEventListener("load", isUserVerified);
+
+
+
 /* 
 
-<div class="tweet-img-section">${userImage.outerHTML}</div> 
+- Function for time since tweet was made?
+- Add full screen popup user img and bg img are clicked?
 
 
-
-
-<div></div>
-
-<p>${tweet.text}</p>
-
-<div class="engagement">
-    <img class = "message-icon" src="https://img.icons8.com/material-outlined/24/000000/speech-bubble.png"/>
-    <img class = "retweet-icon" src="https://img.icons8.com/material-outlined/50/000000/retweet.png"/>
-    <img class = "like-icon" src="https://img.icons8.com/material-outlined/32/000000/filled-like.png"/>
-    <img class = "share-icon" src="https://img.icons8.com/material-two-tone/32/000000/share-rounded.png"/>
-
-</div> */
+*/
