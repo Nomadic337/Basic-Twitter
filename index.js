@@ -63,7 +63,12 @@ if (!siteURL.includes("user=")) {
 // Which user?
 var userObj = users[siteURL.split("=").pop()];
 
-console.log(userObj);
+// test date
+// var myDate = new Date(userObj.tweets[0].timestamp);
+// console.log(userObj.tweets[0].timestamp, "test");
+// console.log(myDate);
+
+
 
 
 // .header, get and add "Elon Musk" and "# Tweets" /   Area 1
@@ -193,10 +198,10 @@ function activeMenuItem(item) {
 
     } else {
         alert("You need to sign in first.")
-    }
-    
+    } 
     
 }
+
 
 var menuItems = document.querySelectorAll(".menu-item");
 for (const menuItem of menuItems) {
@@ -215,7 +220,6 @@ var tweetsOfUser = userObj.tweets;
 // Tweets
 
 var tweetContainer = document.querySelector(".tweet-timeline");
-
 
 
 for (let tweet of tweetsOfUser) {
